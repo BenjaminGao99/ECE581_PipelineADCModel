@@ -1,0 +1,67 @@
+// Clocked comparator : modified version of comparator from ahdlLib
+`include "discipline.h"
+`include "constants.h"
+
+//--------------------
+// clocked comparator
+//
+// -  comparator
+//
+// sigin:	(val,flow)
+// sigref:	reference to which 'sigin' is compared (val,flow)
+// sigout:	comparator output (val,flow)
+// clk   :  output latching clock
+//
+// INSTANCE parameters
+//    sigout_high  = maximum output of the comparator  (val)
+//    sigout_low   = minimum output of the comparator  (val)
+//    sigin_offset = subtracted from 'sigin' before comparason to sigref (val)
+//    comp_slope   = determines the sensitivity of the comparator []
+//    clk_vth      = clock signal threshold
+//
+// MODEL parameters
+//    {none}
+//
+// Compares ('sigin'-'sigin_offset') to 'sigref' - the output is related to
+// their difference by a tanh relationship.
+//
+// If the difference >>> 'sigref', 'sigout' is 'sigout_high'.
+// If the difference = 'sigref', 'sigout' is ('sigout_high' + 'sigout_low')/2.
+// If the difference <<< 'sigref', 'sigout' is 'sigout_low'.
+// Intermediate points are fitting to a tanh scaled by 'comp_slope'.
+//
+
+module ComparatorSE_ideal(sigin, sigref, clk, sigout);
+input sigin, sigref, clk;
+output sigout;
+electrical sigin, sigref, clk, sigout;
+parameter real sigout_high = 10;
+parameter real sigout_low = -10;
+parameter real sigin_offset = 0;
+parameter real comp_slope = 1000;
+parameter real clk_vth = 0.9;
+parameter integer EdgeType = -1 from [-1:1];
+parameter real tr = 1e-12 from [0:inf);
+parameter real tf = 1e-12 from [0:inf);
+parameter real tdelay = 1e-12 from [0:inf);
+
+real sigout_val;
+
+analog begin
+    @ ( initial_step ) begin
+        if (sigout_high <= sigout_low) begin
+            $display("Range specification error.  sigout_high = (%E) less than sigout_low = (%E).\n", sigout_high, sigout_low );
+            $finish;
+        end
+    end
+
+    @ (cross(V(clk) - clk_vth, EdgeType, 1.0, clk.potential.abstol)) begin
+        sigout_val = (V(sigin, sigref) > sigin_offset)? sigout_high:sigout_low;
+//        sigout_val = 0.5 * (sigout_high - sigout_low)
+//                        * tanh(comp_slope*(V(sigin, sigref)- sigin_offset))
+//                      + (sigout_high + sigout_low)/2;
+    end
+
+    V(sigout) <+ transition(sigout_val, tdelay, tr, tf);
+end
+endmodule

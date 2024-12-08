@@ -1,0 +1,85 @@
+// VerilogA for ECE581_PipelineADCModel, ADC_11b_ideal, veriloga
+// Modified version of adc_8bit_ideal from ahdlLib
+
+`include "discipline.h"
+`include "constants.h"
+
+//--------------------
+// ADC_11b_ideal
+//
+// -  Ideal 11 bit analog to digital converter
+//
+// VInP, VInM   :		[V,A]
+// VClk:	[V,A]
+// DOut:	data output terminals	[V,A]
+//
+// INSTANCE parameters
+//    tdel, trise, tfall = {usual} [s]
+//    vlogic_high = [V]
+//    vlogic_low  = [V]
+//    vtrans_clk  = clk high to low transition voltage [V]
+//    VRef        = voltage that voltage is done with respect to [V]
+//
+// MODEL parameters
+//    {none}
+//
+// This model is ideal in the sense that there is no mismatch modeled.
+//
+
+`define NUM_ADC_BITS	11
+
+module ADC_11b_ideal(VInP, VInM, VClk, DOut);
+input VInP, VInM, VClk;
+output [`NUM_ADC_BITS-1:0] DOut;
+
+electrical VInP, VInM, VClk;
+electrical [`NUM_ADC_BITS-1:0] DOut;
+
+parameter real trise = 100p from [0:inf);
+parameter real tfall = 100p from [0:inf);
+parameter real tdel = 100p from [0:inf);
+parameter real vlogic_high = 1.8;
+parameter real vlogic_low  = 0;
+parameter real vtrans_clk     = 0.9;
+parameter real VRef        = 1.0;
+parameter integer EdgeType = -1;
+
+real unconverted;
+real halfref;
+
+real vd[`NUM_ADC_BITS-1:0];
+integer i;
+genvar j;
+
+analog begin
+    @ ( initial_step ) begin
+        halfref = VRef;
+    end
+
+    @ (cross(V(VClk) - vtrans_clk, EdgeType)) begin
+        unconverted = V(VInP, VInM) + halfref;
+        for (i = (`NUM_ADC_BITS-1); i >= 0 ; i = i - 1) begin
+            vd[i] = 0;
+            if (unconverted > halfref) begin
+                vd[i] = vlogic_high; 
+                unconverted = unconverted - halfref;
+            end
+            else begin
+                vd[i] = vlogic_low;
+            end
+            unconverted = unconverted * 2;
+        end
+    end
+
+   //
+   // assign the outputs
+   //
+   for(j = (`NUM_ADC_BITS-1); j >= 0 ; j = j - 1) begin
+       V(DOut[j]) <+ transition( vd[j], tdel, trise, tfall );
+    end
+
+end
+
+`undef NUM_ADC_BITS
+
+endmodule

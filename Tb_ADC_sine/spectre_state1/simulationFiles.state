@@ -1,0 +1,17 @@
+EVcdFile ""
+EVcdInfoFile ""
+VcdFile ""
+VcdInfoFile ""
+VectorFile nil
+allDefinitionFiles nil
+allDspfFiles nil
+allIncludedPaths nil
+allSpefFiles nil
+allStimulusFiles nil
+allVectorFiles nil
+definitionFiles nil
+dspfFile nil
+hlcheck "off"
+includePath "/nfs/guille/a2/cdspdk/IBM/IBM_PDK/cmrf8sf/relDM/Spectre/models"
+spefFile nil
+stimulusFile nil

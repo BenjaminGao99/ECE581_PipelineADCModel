@@ -1,0 +1,87 @@
+// VerilogA for ECE581_PipelineADCModel, DigCombiner_ideal, veriloga
+//--------------------
+// DigCombiner_ideal
+//
+// -  Ideal digital combiner for 3 stage pipeline ADC
+//
+// DOutStg1 :   2-bit raw output of stage 1		[V,A]
+// DOutStg2 :   2-bit raw output of stage 2    [V,A]
+// DOutStg3 :   11-bit output of stage 3    [V,A]
+// VClk:	[V,A]
+// DOut:	data output [V,A]
+//
+// INSTANCE parameters
+//    tdel, trise, tfall = {usual} [s]
+//    vtrans_data = data high to low transition voltage [V]
+//    vtrans_clk  = clk high to low transition voltage [V]
+//    VRef        = voltage that voltage is done with respect to [V]
+//
+// MODEL parameters
+//    {none}
+//
+`include "discipline.h"
+`include "constants.h"
+
+module DigCombiner_ideal(DOutStg1, DOutStg2, DOutStg3, VClk, DOut);
+
+input [1:0] DOutStg1;
+input [1:0] DOutStg2;
+input [10:0] DOutStg3;
+input VClk;
+output DOut;
+
+electrical VClk;
+electrical DOut;
+
+electrical [1:0] DOutStg1;
+electrical [1:0] DOutStg2;
+electrical [10:0] DOutStg3;
+
+parameter real trise = 100p from [0:inf);
+parameter real tfall = 100p from [0:inf);
+parameter real tdel = 100p from [0:inf);
+parameter real vtrans_clk     = 0.9;
+parameter real vtrans_data     = 0.9;
+
+real DOut_val;
+real OutScaled_Stg1, OutScaled_Stg2, OutScaled_Stg3;
+
+genvar i;
+
+integer multfactor;
+
+analog begin
+    @ (initial_step)
+        DOut_val = 0;
+
+    @ (cross(V(VClk) - vtrans_clk, 1)) begin
+        OutScaled_Stg1 = 0;
+        OutScaled_Stg2 = 0;
+        OutScaled_Stg3 = 0;
+        multfactor = 1;
+        for(i = 0; i <= 10; i = i+1) begin
+            OutScaled_Stg3 = OutScaled_Stg3 + ((V(DOutStg3[i]) > vtrans_data)? multfactor : 0);
+            multfactor = multfactor*2;
+        end
+
+        if(V(DOutStg2[1]) > vtrans_data)
+            OutScaled_Stg2 = 2;
+        else
+            OutScaled_Stg2 = (V(DOutStg2[0]) > vtrans_data)? 1 : 0;
+
+        if(V(DOutStg1[1]) > vtrans_data)
+            OutScaled_Stg1 = 2;
+        else
+            OutScaled_Stg1 = (V(DOutStg1[0]) > vtrans_data)? 1 : 0;
+
+        DOut_val = (2048*OutScaled_Stg1) + (1024*OutScaled_Stg2) + OutScaled_Stg3;
+//        $display("OutScaled_Stg1 = %f\n", OutScaled_Stg1);
+//        $display("OutScaled_Stg2 = %f\n", OutScaled_Stg2);
+//        $display("OutScaled_Stg3 = %f\n", OutScaled_Stg3);
+//        $display("DOut_val = %f\n", DOut_val);
+    end
+
+    V(DOut) <+ transition(DOut_val, tdel, trise, tfall);
+end
+
+endmodule

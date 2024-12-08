@@ -1,0 +1,60 @@
+// VerilogA for ECE581_PipelineADCModel, DACMux_ideal, veriloga
+// Modified version of analog_mux from ahdlLib
+
+`include "discipline.h"
+`include "constants.h"
+
+//--------------------
+// DACMux_ideal
+//
+// -  analog multiplexer
+//
+// VIn0 ,VIn1, VIn2 :	[V,A]
+// VSel     :	selection voltage [V,A]
+// VOut:	[V,A]
+//
+// INSTANCE parameters
+//    vth = Threshold voltage for the selection line [V]
+//
+// MODEL parameters
+//    {none}
+//
+//
+(* instrument_module *)
+module DACMux_ideal(VIn0, VIn1, VIn2, VSel, VOut);
+input VIn0, VIn1, VIn2;
+input [1:0] VSel;
+output VOut;
+electrical VIn0, VIn1, VIn2, VOut;
+electrical [1:0] VSel;
+
+parameter real vth  = 0.9;
+parameter real tr = 1e-12 from [0:inf);
+parameter real tf = 1e-12 from [0:inf);
+parameter real tdelay = 1e-12 from [0:inf);
+
+   integer selector;
+   real VOut_val;
+
+   analog begin
+   if(V(VSel[1]) > vth)
+       selector = 2;
+   else
+       selector = (V(VSel[0]) > vth)? 1 : 0;
+
+    @ (cross(V(VSel[1]) - vth, 0, 1.0, VSel.potential.abstol) or cross(V(VSel[0]) - vth, 0, 1.0, VSel.potential.abstol)) begin
+        if(V(VSel[1]) > vth)
+            selector = 2;
+        else
+            selector = (V(VSel[0]) > vth)? 1 : 0;
+    end
+
+    case(selector)
+        2 : VOut_val = V(VIn2);
+        1 : VOut_val = V(VIn1);
+        default : VOut_val = V(VIn0);
+    endcase
+
+    V(VOut) <+ transition(VOut_val, tdelay, tr, tf);
+   end
+endmodule
