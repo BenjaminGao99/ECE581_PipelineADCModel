@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      yshiau2
+HostName                       fastx3-06.ews.illinois.edu
+ProcessIdentifier              334569
+ProcessCreationTime_UTC        1733697317
+ProcessCreationTime_Readable   Sun Dec  8 16:35:17 2024 CST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/yshiau2/ece581.work/ECE581_PipelineADCModel/residue_amplifier_Henry/schematic/sch.oa.cdslck
+TimeEditLocked                 Sun Dec  8 17:45:52 2024 CST
