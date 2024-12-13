@@ -37,4 +37,5 @@
 # Current Settings:
 #
 CDSLIBRARY
+DMTYPE none
 NAMESPACE LibraryUnix

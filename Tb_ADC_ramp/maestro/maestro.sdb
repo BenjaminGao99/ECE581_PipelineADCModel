@@ -3,11 +3,11 @@
 	<active>Active Setup
 		<overwritehistory>0</overwritehistory>
 		<tests>
-			<test>ECE581_PipelineADCModel_Tb_ADC_sine_1
+			<test>ECE581_PipelineADCModel_Tb_ADC_ramp_1
 				<tool>ADE</tool>
 				<tooloptions>
 					<option>cell
-						<value>Tb_ADC_sine</value>
+						<value>Tb_ADC_ramp</value>
 					</option>
 					<option>lib
 						<value>ECE581_PipelineADCModel</value>
@@ -25,6 +25,17 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
+				<vars>
+					<var>Cf
+						<value></value>
+					</var>
+					<var>Cs
+						<value></value>
+					</var>
+					<var>VRef
+						<value></value>
+					</var>
+				</vars>
 			</test>
 		</tests>
 		<currentmode>Single Run, Sweeps and Corners</currentmode>
@@ -41,7 +52,7 @@
 			</extension>
 		</extensions>
 		<checksasserts netlist="0">
-			<test netlist="0" netlistscope="all">ECE581_PipelineADCModel_Tb_ADC_sine_1</test>
+			<test netlist="0" netlistscope="all">ECE581_PipelineADCModel_Tb_ADC_ramp_1</test>
 		</checksasserts>
 		<plottingoptions>
 			<plottingoption>waveformtemplate

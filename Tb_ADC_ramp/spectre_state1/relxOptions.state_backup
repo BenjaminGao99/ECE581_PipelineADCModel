@@ -117,4 +117,4 @@
 (relxOpts uriAppendtype) "none"
 (relxOpts uriDebugMode) "0"
 (relxOpts uriLibs) ""
-(relxOpts uriMode) "agemos"
+(relxOpts uriMode) "none"
