@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      bgao8
+HostName                       fastx3-12.ews.illinois.edu
+ProcessIdentifier              109498
+ProcessCreationTime_UTC        1734279581
+ProcessCreationTime_Readable   Sun Dec 15 10:19:41 2024 CST
+AppIdentifier                  /software/cadence-2024-08/IC231/tools.lnx86/dfII/bin/64bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /home/bgao8/ece581.work/ECE581_PipelineADCModel/ComparaterSE_testbench/maestro/maestro.sdb
+TimeEditLocked                 Sun Dec 15 11:00:00 2024 CST
