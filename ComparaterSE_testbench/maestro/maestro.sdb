@@ -38,29 +38,7 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
-				<outputs>
-					<output>sigout+
-						<evalType>point</evalType>
-					</output>
-					<output>sigin
-						<evalType>point</evalType>
-					</output>
-					<output>CLK
-						<evalType>point</evalType>
-					</output>
-					<output>X
-						<evalType>point</evalType>
-					</output>
-					<output>Y
-						<evalType>point</evalType>
-					</output>
-					<output>sigout-
-						<evalType>point</evalType>
-					</output>
-					<output>sigout_ideal
-						<evalType>point</evalType>
-					</output>
-				</outputs>
+				<outputs></outputs>
 			</test>
 		</tests>
 		<disabledtests></disabledtests>
