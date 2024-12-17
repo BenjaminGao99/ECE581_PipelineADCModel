@@ -38,7 +38,20 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
-				<outputs></outputs>
+				<outputs>
+					<output>phase((VF("/Vout+") - VF("/Vout-")))
+						<evalType>point</evalType>
+					</output>
+					<output>dB20((VF("/Vout+") - VF("/Vout-")))
+						<evalType>point</evalType>
+					</output>
+					<output>(phase(VF("/I0/Vfb")) + 180)
+						<evalType>point</evalType>
+					</output>
+					<output>dB20(VF("/I0/Vfb"))
+						<evalType>point</evalType>
+					</output>
+				</outputs>
 			</test>
 		</tests>
 		<disabledtests></disabledtests>

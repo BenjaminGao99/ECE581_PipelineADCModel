@@ -13,4 +13,4 @@ AppIdentifier                  OA File System Design Manager
 OSType                         unix
 ReasonForPlacingEditLock       OpenAccess edit lock
 FilePathUsedToEditLock         /home/bgao8/ece581.work/ECE581_PipelineADCModel/amplifier_residue/schematic/sch.oa.cdslck
-TimeEditLocked                 Mon Dec 16 20:09:38 2024 CST
+TimeEditLocked                 Mon Dec 16 23:29:42 2024 CST

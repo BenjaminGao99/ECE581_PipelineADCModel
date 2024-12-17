@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<statedb ICVersion="IC23.1-64b.ISR9.24" modifiedTime="12/16/2024 20:21:21" version="5">active
+<statedb ICVersion="IC23.1-64b.ISR9.24" modifiedTime="12/16/2024 22:25:42" version="5">active
 	<Test Name="ECE581_PipelineADCModel_testbench_diff_1">
 		<component Name="adeInfo" Type="skillTable">adeinfo
 			<field Name="designInfo" Type="list">("ECE581_PipelineADCModel" "testbench_diff" "schematic" "spectre")</field>
@@ -704,7 +704,7 @@
 						<field Name="plot" Type="list">nil</field>
 						<field Name="save" Type="symbol">t</field>
 						<field Name="march" Type="list">nil</field>
-						<field Name="implicit" Type="fixnum">2</field>
+						<field Name="implicit" Type="fixnum">4</field>
 						<field Name="index" Type="fixnum">6</field>
 						<field Name="timeStamp" Type="list">nil</field>
 						<field Name="graphType" Type="list">nil</field>
@@ -781,7 +781,7 @@
 						<field Name="plot" Type="list">nil</field>
 						<field Name="save" Type="symbol">t</field>
 						<field Name="march" Type="list">nil</field>
-						<field Name="implicit" Type="fixnum">1</field>
+						<field Name="implicit" Type="fixnum">3</field>
 						<field Name="index" Type="fixnum">8</field>
 						<field Name="timeStamp" Type="list">nil</field>
 						<field Name="graphType" Type="list">nil</field>
@@ -872,7 +872,7 @@
 					</field>
 					<field Name="outputList_10" Type="defstruct">sevOutputStruct
 						<field Name="name" Type="list">nil</field>
-						<field Name="expression" Type="list">(phase(VF("/I0/net4")) + 180)</field>
+						<field Name="expression" Type="list">(phase(VF("/I0/Vfb")) + 180)</field>
 						<field Name="signal" Type="list">nil</field>
 						<field Name="scriptFile" Type="list">nil</field>
 						<field Name="type2" Type="list">nil</field>
@@ -904,14 +904,14 @@
 						<field Name="label" Type="list">nil</field>
 						<field Name="yaxisUnit" Type="list">nil</field>
 						<field Name="waveSpec" Type="list">nil</field>
-						<field Name="uniqueName" Type="string">"(phase(VF(\"/I0/net4\")) + 180)"</field>
+						<field Name="uniqueName" Type="string">"(phase(VF(\"/I0/Vfb\")) + 180)"</field>
 						<field Name="origExprBldrExpression" Type="list">nil</field>
-						<field Name="inValidObject" Type="list">(nil "(phase(VF(\"/I0/net4\")) + 180)")</field>
+						<field Name="inValidObject" Type="list">(nil "(phase(VF(\"/I0/Vfb\")) + 180)")</field>
 					</field>
 					<field Name="outputList_11" Type="defstruct">sevOutputStruct
 						<field Name="name" Type="list">nil</field>
-						<field Name="expression" Type="list">nil</field>
-						<field Name="signal" Type="string">"/I0/net4"</field>
+						<field Name="expression" Type="list">dB20(VF("/I0/Vfb"))</field>
+						<field Name="signal" Type="list">nil</field>
 						<field Name="scriptFile" Type="list">nil</field>
 						<field Name="type2" Type="list">nil</field>
 						<field Name="evalType" Type="list">nil</field>
@@ -924,17 +924,17 @@
 						<field Name="saveMasterScriptFile" Type="list">nil</field>
 						<field Name="isReferenced" Type="list">nil</field>
 						<field Name="lastEvalTime" Type="list">nil</field>
-						<field Name="origin" Type="string">"auto"</field>
+						<field Name="origin" Type="list">nil</field>
 						<field Name="sweepSet" Type="list">nil</field>
 						<field Name="depList" Type="list">nil</field>
-						<field Name="type" Type="symbol">net</field>
+						<field Name="type" Type="list">nil</field>
 						<field Name="areaTable" Type="list">nil</field>
 						<field Name="selectionDetail" Type="list">nil</field>
 						<field Name="value" Type="list">nil</field>
 						<field Name="plot" Type="list">nil</field>
-						<field Name="save" Type="symbol">t</field>
+						<field Name="save" Type="list">nil</field>
 						<field Name="march" Type="list">nil</field>
-						<field Name="implicit" Type="fixnum">2</field>
+						<field Name="implicit" Type="list">nil</field>
 						<field Name="index" Type="fixnum">12</field>
 						<field Name="timeStamp" Type="list">nil</field>
 						<field Name="graphType" Type="list">nil</field>
@@ -942,14 +942,13 @@
 						<field Name="label" Type="list">nil</field>
 						<field Name="yaxisUnit" Type="list">nil</field>
 						<field Name="waveSpec" Type="list">nil</field>
-						<field Name="uniqueName" Type="string">"/I0/net4"</field>
+						<field Name="uniqueName" Type="string">"dB20(VF(\"/I0/Vfb\"))"</field>
 						<field Name="origExprBldrExpression" Type="list">nil</field>
-						<field Name="inValidObject" Type="list">nil</field>
-						<field Name="inLastSet" Type="list">nil</field>
+						<field Name="inValidObject" Type="list">(nil "dB20(VF(\"/I0/Vfb\"))")</field>
 					</field>
 					<field Name="outputList_12" Type="defstruct">sevOutputStruct
 						<field Name="name" Type="list">nil</field>
-						<field Name="expression" Type="list">dB20(VF("/I0/net4"))</field>
+						<field Name="expression" Type="list">dB20((VF("/Vout+") - VF("/Vout-")))</field>
 						<field Name="signal" Type="list">nil</field>
 						<field Name="scriptFile" Type="list">nil</field>
 						<field Name="type2" Type="list">nil</field>
@@ -981,9 +980,86 @@
 						<field Name="label" Type="list">nil</field>
 						<field Name="yaxisUnit" Type="list">nil</field>
 						<field Name="waveSpec" Type="list">nil</field>
-						<field Name="uniqueName" Type="string">"dB20(VF(\"/I0/net4\"))"</field>
+						<field Name="uniqueName" Type="string">"dB20((VF(\"/Vout+\") - VF(\"/Vout-\")))"</field>
 						<field Name="origExprBldrExpression" Type="list">nil</field>
-						<field Name="inValidObject" Type="list">(nil "dB20(VF(\"/I0/net4\"))")</field>
+						<field Name="inValidObject" Type="list">(nil "dB20((VF(\"/Vout+\") - VF(\"/Vout-\")))")</field>
+					</field>
+					<field Name="outputList_13" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="list">nil</field>
+						<field Name="expression" Type="list">phase((VF("/Vout+") - VF("/Vout-")))</field>
+						<field Name="signal" Type="list">nil</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="list">nil</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="updatedScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="list">nil</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="list">nil</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="list">nil</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="implicit" Type="list">nil</field>
+						<field Name="index" Type="fixnum">14</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="waveSpec" Type="list">nil</field>
+						<field Name="uniqueName" Type="string">"phase((VF(\"/Vout+\") - VF(\"/Vout-\")))"</field>
+						<field Name="origExprBldrExpression" Type="list">nil</field>
+						<field Name="inValidObject" Type="list">(nil "phase((VF(\"/Vout+\") - VF(\"/Vout-\")))")</field>
+					</field>
+					<field Name="outputList_14" Type="defstruct">sevOutputStruct
+						<field Name="name" Type="list">nil</field>
+						<field Name="expression" Type="list">nil</field>
+						<field Name="signal" Type="string">"/I0/Vfb"</field>
+						<field Name="scriptFile" Type="list">nil</field>
+						<field Name="type2" Type="list">nil</field>
+						<field Name="evalType" Type="list">nil</field>
+						<field Name="displayIt" Type="list">nil</field>
+						<field Name="internalName" Type="list">nil</field>
+						<field Name="masterName" Type="list">nil</field>
+						<field Name="masterScriptFile" Type="list">nil</field>
+						<field Name="saveScriptFile" Type="list">nil</field>
+						<field Name="updatedScriptFile" Type="list">nil</field>
+						<field Name="saveMasterScriptFile" Type="list">nil</field>
+						<field Name="isReferenced" Type="list">nil</field>
+						<field Name="lastEvalTime" Type="list">nil</field>
+						<field Name="origin" Type="string">"auto"</field>
+						<field Name="sweepSet" Type="list">nil</field>
+						<field Name="depList" Type="list">nil</field>
+						<field Name="type" Type="symbol">net</field>
+						<field Name="areaTable" Type="list">nil</field>
+						<field Name="selectionDetail" Type="list">nil</field>
+						<field Name="value" Type="list">nil</field>
+						<field Name="plot" Type="list">nil</field>
+						<field Name="save" Type="symbol">t</field>
+						<field Name="march" Type="list">nil</field>
+						<field Name="implicit" Type="fixnum">2</field>
+						<field Name="index" Type="fixnum">15</field>
+						<field Name="timeStamp" Type="list">nil</field>
+						<field Name="graphType" Type="list">nil</field>
+						<field Name="yaxisLabel" Type="list">nil</field>
+						<field Name="label" Type="list">nil</field>
+						<field Name="yaxisUnit" Type="list">nil</field>
+						<field Name="waveSpec" Type="list">nil</field>
+						<field Name="uniqueName" Type="string">"/I0/Vfb"</field>
+						<field Name="origExprBldrExpression" Type="list">nil</field>
+						<field Name="inValidObject" Type="list">nil</field>
+						<field Name="inLastSet" Type="list">nil</field>
 					</field>
 				</field>
 			</partition>
