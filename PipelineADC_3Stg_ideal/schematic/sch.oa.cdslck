@@ -12,5 +12,5 @@ ProcessCreationTime_Readable   Wed Dec 18 09:11:09 2024 CST
 AppIdentifier                  OA File System Design Manager
 OSType                         unix
 ReasonForPlacingEditLock       OpenAccess edit lock
-FilePathUsedToEditLock         /home/bgao8/ece581.work/ECE581_PipelineADCModel/real1#2e5_ADC_ramp/schematic/sch.oa.cdslck
-TimeEditLocked                 Wed Dec 18 21:38:58 2024 CST
+FilePathUsedToEditLock         /home/bgao8/ece581.work/ECE581_PipelineADCModel/PipelineADC_3Stg_ideal/schematic/sch.oa.cdslck
+TimeEditLocked                 Wed Dec 18 22:54:14 2024 CST

@@ -1,6 +1,6 @@
 Starting Single Run, Sweeps and Corners...
 
-Current time: Fri Dec 13 15:36:45 2024 
+Current time: Wed Dec 18 12:17:00 2024 
 Best design point: 1
 Design specs: 
 	ECE581_PipelineADCModel_Tb_ADC_ramp_1	corner	Nominal - 
@@ -10,4 +10,4 @@ ExplorerRun.0
 Number of points completed: 1
 Number of simulation errors: 0
 ExplorerRun.0 completed. 
-Current time: Fri Dec 13 15:47:33 2024 
+Current time: Wed Dec 18 13:10:58 2024 

@@ -74,7 +74,7 @@ analog begin
         else
             OutScaled_Stg1 = (V(DOutStg1[0]) > vtrans_data)? 1 : 0;
 
-        DOut_val = ((2048*OutScaled_Stg1) + (1024*OutScaled_Stg2) + OutScaled_Stg3);
+        DOut_val = ((2048*OutScaled_Stg1) + (1024*OutScaled_Stg2) + OutScaled_Stg3) / 2;
 //        $display("OutScaled_Stg1 = %f\n", OutScaled_Stg1);
 //        $display("OutScaled_Stg2 = %f\n", OutScaled_Stg2);
 //        $display("OutScaled_Stg3 = %f\n", OutScaled_Stg3);

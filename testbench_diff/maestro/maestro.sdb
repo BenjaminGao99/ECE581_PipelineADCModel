@@ -51,6 +51,12 @@
 					<output>dB20(VF("/I0/Vfb"))
 						<evalType>point</evalType>
 					</output>
+					<output>(phase((VF("/Vout+") - VF("/Vout-"))) + 180)
+						<evalType>point</evalType>
+					</output>
+					<output>(VT("/net18") - VT("/net12"))
+						<evalType>point</evalType>
+					</output>
 				</outputs>
 			</test>
 		</tests>

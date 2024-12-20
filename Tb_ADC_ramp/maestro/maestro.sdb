@@ -1,9 +1,22 @@
 <?xml version="1.0"?>
 <setupdb version="7">maestro
 	<active>Active Setup
+		<jobcontrolmode>LSCS</jobcontrolmode>
+		<corners>
+			<corner enabled="1">_default</corner>
+		</corners>
+		<sharedvarinfo></sharedvarinfo>
+		<extensions>
+			<extension>Parasitics
+				<callback>_parSetupDBExtensionCB</callback>
+				<iconvalue></iconvalue>
+				<icontype></icontype>
+			</extension>
+		</extensions>
+		<currentmode>Single Run, Sweeps and Corners</currentmode>
 		<overwritehistory>0</overwritehistory>
 		<tests>
-			<test>ECE581_PipelineADCModel_Tb_ADC_ramp_1
+			<test enabled="1">ECE581_PipelineADCModel_Tb_ADC_ramp_1
 				<tool>ADE</tool>
 				<tooloptions>
 					<option>cell
@@ -25,32 +38,9 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
-				<vars>
-					<var>Cf
-						<value></value>
-					</var>
-					<var>Cs
-						<value></value>
-					</var>
-					<var>VRef
-						<value></value>
-					</var>
-				</vars>
 			</test>
 		</tests>
-		<currentmode>Single Run, Sweeps and Corners</currentmode>
-		<jobcontrolmode>LSCS</jobcontrolmode>
-		<corners>
-			<corner enabled="1">_default</corner>
-		</corners>
-		<sharedvarinfo></sharedvarinfo>
-		<extensions>
-			<extension>Parasitics
-				<callback>_parSetupDBExtensionCB</callback>
-				<iconvalue></iconvalue>
-				<icontype></icontype>
-			</extension>
-		</extensions>
+		<disabledtests></disabledtests>
 		<checksasserts netlist="0">
 			<test netlist="0" netlistscope="all">ECE581_PipelineADCModel_Tb_ADC_ramp_1</test>
 		</checksasserts>

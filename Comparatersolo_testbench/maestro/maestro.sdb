@@ -38,7 +38,11 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
-				<outputs></outputs>
+				<outputs>
+					<output>(VT("/sigin") - VT("/sigref"))
+						<evalType>point</evalType>
+					</output>
+				</outputs>
 			</test>
 		</tests>
 		<disabledtests></disabledtests>

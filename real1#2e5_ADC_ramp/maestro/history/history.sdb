@@ -3,8 +3,8 @@
 	<active>Active Setup</active>
 	<history>History
 		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
-			<timestamp>Dec 17 00:00:54 2024</timestamp>
-			<uuid>{6f134b9c-2336-4eca-849b-36bb04bebc8d}</uuid>
+			<timestamp>Dec 18 21:39:09 2024</timestamp>
+			<uuid>{5c152874-f6e0-4a32-97e2-05692d93c589}</uuid>
 			<locked>0</locked>
 			<mode>Single Run, Sweeps and Corners</mode>
 			<resultsname>/home/bgao8/ece581.work/ECE581_PipelineADCModel/real1#2e5_ADC_ramp/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>

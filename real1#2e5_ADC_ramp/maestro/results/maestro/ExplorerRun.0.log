@@ -1,13 +1,20 @@
 Starting Single Run, Sweeps and Corners...
 
-Current time: Tue Dec 17 00:00:55 2024 
+Current time: Wed Dec 18 21:39:10 2024 
 Best design point: 1
 Design specs: 
 	ECE581_PipelineADCModel_real1.5_ADC_ramp_1	corner	Nominal - 
+	(VT("/voutp") - VT("/voutn"))		Error	No
+	(VT("/vinp") - VT("/vinn"))		Error	No
+	VT("/clk1")		Error	No
+	VT("/clk2")		Error	No
+	VT("/Dout<0>")		Error	No
+	VT("/Dout<1>")		Error	No
+	(VT("/I0/net13") - VT("/I0/net14"))		Error	No
 Design parameters: 
 
 ExplorerRun.0
 Number of points completed: 1
 Number of simulation errors: 0
 ExplorerRun.0 completed. 
-Current time: Tue Dec 17 00:01:29 2024 
+Current time: Wed Dec 18 21:39:27 2024 

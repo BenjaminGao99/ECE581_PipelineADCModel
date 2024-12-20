@@ -38,6 +38,14 @@
 						<value>active</value>
 					</option>
 				</tooloptions>
+				<outputs>
+					<output>VT("/Dout&lt;0&gt;")
+						<evalType>point</evalType>
+					</output>
+					<output>VT("/Dout&lt;1&gt;")
+						<evalType>point</evalType>
+					</output>
+				</outputs>
 			</test>
 		</tests>
 		<disabledtests></disabledtests>

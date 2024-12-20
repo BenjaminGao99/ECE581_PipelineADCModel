@@ -1,0 +1,21 @@
+\o Program:		@(#)$CDS: libManager version 23.1 - CAT38 08/20/2024 18:26 (cpgsrv14) $
+\o Sub version:		sub-version  s091 
+\o Arguments:		-mpssession virtuoso202702 -mpshost fastx3-18.ews.illinois.edu -masterPID 202702 -ADVM 
+\o Working Directory:	fastx3-18.ews.illinois.edu:/home/bgao8/ece581.work/ECE581_PipelineADCModel
+\o 64-bit offsets
+\o Qt version: 		5.15.9
+\o Log file is "/home/bgao8/ece581.work/ECE581_PipelineADCModel/libManager.log".
+\o Opening libManager window.
+\a nrSetCurrentWindow(cdsLibManager)
+\a nrResizeWindow(cdsLibManager list(74 346 1346 916))
+\o MPS virtuoso types registered: 68
+\o changeWorkingDir("/home/bgao8/ece581.work/ECE581_PipelineADCModel") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\o Session hidden cells enabled.
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\a _lmgrCloseIconify("cdsLibManager" 1)
+\o MPS service: shutdown
+\o libManager is exiting.
+\a exit(0)
